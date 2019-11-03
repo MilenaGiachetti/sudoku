@@ -1,5 +1,6 @@
 //creacion de la grilla
 let contenedor = document.getElementById('contenedorSudoku');
+let btnClear = document.getElementById('btnClear');
 let cuadros = [];
 let i = 0;
 
@@ -12,7 +13,7 @@ while(i, i<81){
     i++;
 }
 //funcion para cambiar numeros de cada cuadro de 1 a 9
-for (var e = 0; e < cuadros.length; e++) {
+for (let e = 0; e < cuadros.length; e++) {
     cuadros[e].addEventListener('click', restriccionNumero);
 } 
 function restriccionNumero(){
@@ -50,3 +51,11 @@ cuadros[50].classList.add('class','lineaVertical');
 cuadros[59].classList.add('class','lineaVertical');
 cuadros[68].classList.add('class','lineaVertical');
 cuadros[77].classList.add('class','lineaVertical');
+
+
+function clear(){
+    for (let c = 0; c < cuadros.length; c++) {
+        cuadros[c].innerHTML = "";
+    } 
+}
+btnClear.addEventListener('click', clear);
