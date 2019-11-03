@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Komoda";
+  src: url("../assets/Komoda.otf");
+}
+
+body {
+  background-image: url("../assets/bananas.png");
+}
+
+body header h1 {
+  font-family: "Komoda", Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding-top: 5px;
+  padding-left: 50px;
+  margin: 50px 0;
+  color: #f2f2f2;
+  letter-spacing: 40px;
+  font-size: 54px;
+  background: #E94F37;
+}
+
+body main .contenedorSudoku {
+  width: 460px;
+  margin: auto;
+  border: 5px solid #BFE8E3;
+}
+
+body main .contenedorSudoku .cuadro {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #BFE8E3;
+  font-size: 35px;
+  text-align: center;
+  color: #E94F37;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body main .contenedorSudoku .cuadro:hover {
+  background: #FFF1C0;
+}
+
+body main .contenedorSudoku .lineaVertical {
+  border-right: 4px solid #BFE8E3;
+  display: inline-block;
+}
+
+body main .contenedorSudoku .lineaHorizontal {
+  border-bottom: 4px solid #BFE8E3;
+  display: inline-block;
+}
+
+body main .contenedorBtn {
+  text-align: center;
+}
+
+body main .contenedorBtn .btn {
+  width: 95px;
+  margin: 30px;
+  padding: 10px 0px;
+  border-radius: 5px;
+  background: #BFE8E3;
+  border: 2px solid #E94F37;
+  color: #E94F37;
+  font-weight: bold;
+}
+
+body main .contenedorBtn .btn:hover {
+  background: #E94F37;
+  color: #BFE8E3;
+  -webkit-box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+          box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+}
+
+body main .contenedorBtn .check {
+  background: #E94F37;
+  color: #BFE8E3;
+}
+
+body main .contenedorBtn .check:hover {
+  background: #BFE8E3;
+  border: 2px solid #E94F37;
+  color: #E94F37;
+  -webkit-box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+          box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  body main .contenedorSudoku {
+    width: 370px;
+  }
+  body main .contenedorSudoku .cuadro {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    line-height: 40px;
+  }
+  body main .contenedorBtn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body main .contenedorBtn .btn {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body header h1 {
+    margin: 20px 0;
+    letter-spacing: 30px;
+    font-size: 42px;
+  }
+  body main .contenedorSudoku {
+    width: 280px;
+  }
+  body main .contenedorSudoku .cuadro {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  body header h1 {
+    margin: 20px 0;
+    letter-spacing: 20px;
+    font-size: 32px;
+  }
+  body main .contenedorSudoku {
+    width: 235px;
+  }
+  body main .contenedorSudoku .cuadro {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25px;
+  }
+  body main .contenedorBtn {
+    margin-top: 20px;
+  }
+  body main .contenedorBtn .btn {
+    width: 150px;
+    margin: 5px;
+    font-size: 12px;
+  }
+}
+/*# sourceMappingURL=estilo.css.map */
