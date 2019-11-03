@@ -41,6 +41,7 @@ body main .contenedorSudoku .cuadro {
   border: 1px solid #BFE8E3;
   font-size: 35px;
   text-align: center;
+  vertical-align: middle;
   color: #E94F37;
   vertical-align: top;
   cursor: pointer;
@@ -101,13 +102,14 @@ body main .contenedorBtn .check:hover {
 
 @media screen and (max-width: 600px) {
   body main .contenedorSudoku {
-    width: 370px;
+    width: 90%;
   }
   body main .contenedorSudoku .cuadro {
-    width: 40px;
-    height: 40px;
-    font-size: 25px;
-    line-height: 40px;
+    width: 11%;
+    height: 0;
+    padding-bottom: 11%;
+    font-size: 35px;
+    vertical-align: middle;
   }
   body main .contenedorBtn {
     display: -webkit-box;
@@ -133,13 +135,10 @@ body main .contenedorBtn .check:hover {
     font-size: 42px;
   }
   body main .contenedorSudoku {
-    width: 280px;
+    width: 100%;
   }
   body main .contenedorSudoku .cuadro {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 24px;
   }
 }
 
@@ -149,14 +148,8 @@ body main .contenedorBtn .check:hover {
     letter-spacing: 20px;
     font-size: 32px;
   }
-  body main .contenedorSudoku {
-    width: 235px;
-  }
   body main .contenedorSudoku .cuadro {
-    width: 25px;
-    height: 25px;
     font-size: 20px;
-    line-height: 25px;
   }
   body main .contenedorBtn {
     margin-top: 20px;
