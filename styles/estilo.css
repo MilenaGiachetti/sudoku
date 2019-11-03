@@ -111,18 +111,6 @@ body main .contenedorBtn .check:hover {
     font-size: 35px;
     vertical-align: middle;
   }
-  body main .contenedorBtn {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
   body main .contenedorBtn .btn {
     margin: 10px;
   }
@@ -140,6 +128,15 @@ body main .contenedorBtn .check:hover {
   body main .contenedorSudoku .cuadro {
     font-size: 24px;
   }
+  body main .contenedorBtn {
+    margin-top: 10px;
+  }
+  body main .contenedorBtn .btn {
+    width: 80px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -152,10 +149,11 @@ body main .contenedorBtn .check:hover {
     font-size: 20px;
   }
   body main .contenedorBtn {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   body main .contenedorBtn .btn {
-    width: 150px;
+    width: 65px;
+    padding: 5px;
     margin: 5px;
     font-size: 12px;
   }
