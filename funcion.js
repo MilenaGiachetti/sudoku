@@ -1,6 +1,7 @@
 //creacion de la grilla
 let contenedor = document.getElementById('contenedorSudoku');
 let btnClear = document.getElementById('btnClear');
+let btnCheck = document.getElementById('btnCheck');
 let cuadros = [];
 let i = 0;
 
@@ -14,9 +15,10 @@ while(i, i<81){
 }
 //funcion para cambiar numeros de cada cuadro de 1 a 9
 for (let e = 0; e < cuadros.length; e++) {
-    cuadros[e].addEventListener('click', restriccionNumero);
+    cuadros[e].addEventListener('click', aumentarNumero);
+    cuadros[e].addEventListener('contextmenu', disminuirNumero);
 } 
-function restriccionNumero(){
+function aumentarNumero(){
     if(this.innerHTML === ''){
         this.innerHTML = 1 ;
     }else if (this.innerHTML == 9) {
@@ -25,33 +27,32 @@ function restriccionNumero(){
         this.innerHTML++;
     }
 }
-
+function disminuirNumero (e){
+    e.preventDefault();
+    if(this.innerHTML === ''){
+        this.innerHTML = 9 ;
+    }else if (this.innerHTML == 1) {
+        this.innerHTML = '';     
+    } else {
+        this.innerHTML--;
+    }
+}
 //lineas que separan recuadros
-for (let a = 18; a < 27; a++) {
-    cuadros[a].classList.add('class','lineaHorizontal');
+//horizontales
+for (let h = 18; h < 27; h++) {
+    cuadros[h].classList.add('class','lineaHorizontal');
 }
-for (let a = 45; a < 54; a++) {
-    cuadros[a].classList.add('class','lineaHorizontal');
+for (let h = 45; h < 54; h++) {
+    cuadros[h].classList.add('class','lineaHorizontal');
 }
-cuadros[2].classList.add('class','lineaVertical');
-cuadros[5].classList.add('class','lineaVertical');
-cuadros[11].classList.add('class','lineaVertical');
-cuadros[20].classList.add('class','lineaVertical');
-cuadros[29].classList.add('class','lineaVertical');
-cuadros[38].classList.add('class','lineaVertical');
-cuadros[47].classList.add('class','lineaVertical');
-cuadros[56].classList.add('class','lineaVertical');
-cuadros[65].classList.add('class','lineaVertical');
-cuadros[74].classList.add('class','lineaVertical');
-cuadros[14].classList.add('class','lineaVertical');
-cuadros[23].classList.add('class','lineaVertical');
-cuadros[32].classList.add('class','lineaVertical');
-cuadros[41].classList.add('class','lineaVertical');
-cuadros[50].classList.add('class','lineaVertical');
-cuadros[59].classList.add('class','lineaVertical');
-cuadros[68].classList.add('class','lineaVertical');
-cuadros[77].classList.add('class','lineaVertical');
-
+//verticales
+for (let v = 0; v < 81; v++) {
+    for (let n = 0; n <= 9; n++) {
+        if(v == 2 + 9*n || v == 5 +9*n){
+            cuadros[v].classList.add('class','lineaVertical');
+        }
+    }
+}
 
 function clear(){
     for (let c = 0; c < cuadros.length; c++) {
@@ -59,3 +60,13 @@ function clear(){
     } 
 }
 btnClear.addEventListener('click', clear);
+/*function check(){
+    for (let check = 0; check < 9; check++) {
+        for (let linecheck = 1; linecheck < 10; linecheck++) {
+            if()
+
+
+        } 
+    }
+}
+btnCheck.addEventListener('click', check);*/
