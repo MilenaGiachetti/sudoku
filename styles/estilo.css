@@ -107,8 +107,9 @@ body main .contenedorBtn .check:hover {
   body main .contenedorSudoku .cuadro {
     width: 11%;
     height: 0;
-    padding-bottom: 11%;
     font-size: 35px;
+    padding-bottom: 10%;
+    padding-top: 1%;
     vertical-align: middle;
   }
   body main .contenedorBtn .btn {
@@ -127,6 +128,8 @@ body main .contenedorBtn .check:hover {
   }
   body main .contenedorSudoku .cuadro {
     font-size: 24px;
+    padding-bottom: 9%;
+    padding-top: 2%;
   }
   body main .contenedorBtn {
     margin-top: 10px;
@@ -147,6 +150,8 @@ body main .contenedorBtn .check:hover {
   }
   body main .contenedorSudoku .cuadro {
     font-size: 20px;
+    padding-bottom: 10%;
+    padding-top: 1%;
   }
   body main .contenedorBtn {
     margin-top: 10px;
