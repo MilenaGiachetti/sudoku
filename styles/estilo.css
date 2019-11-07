@@ -82,7 +82,7 @@ body main .contenedorBtn .btn {
 
 body main .contenedorBtn .btn:hover {
   background: #E94F37;
-  color: #BFE8E3;
+  color: #424141;
   -webkit-box-shadow: 5px 5px 10px rgba(233, 79, 55, 0.3);
           box-shadow: 5px 5px 10px rgba(233, 79, 55, 0.3);
 }
