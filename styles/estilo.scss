@@ -10,7 +10,7 @@
 }
 
 body{
-    background-image: url('../assets/bananas.png');
+    background: #424141;
     header{
         h1{
             font-family: "Komoda", Arial, Helvetica, sans-serif;
@@ -28,14 +28,14 @@ body{
         .contenedorSudoku{
             width: 460px;
             margin: auto;
-            border: 5px solid #BFE8E3;
+            border: 5px solid #363538;
             .cuadro{
                 display: inline-block;
                 width: 50px;
                 height: 50px;
                 margin: 0;
                 background: #fff;
-                border: 1px solid #BFE8E3;
+                border: 1px solid #363538;
                 font-size: 35px;
                 text-align: center;
                 vertical-align: middle;
@@ -47,15 +47,15 @@ body{
                 -ms-user-select: none;      
                 user-select: none;
                 &:hover{
-                    background: #FFF1C0;
+                    background: #f2f2f2;
                 }
             }
             .lineaVertical{
-                border-right: 4px solid #BFE8E3;
+                border-right: 4px solid #363538;
                 display: inline-block;
             }
             .lineaHorizontal{
-                border-bottom: 4px solid #BFE8E3;
+                border-bottom: 4px solid #363538;
                 display: inline-block;
             }
         }
@@ -66,24 +66,24 @@ body{
                 margin: 30px;
                 padding: 10px 0px;
                 border-radius: 5px;
-                background: #BFE8E3;
+                background: #424141;
                 border: 2px solid #E94F37;
                 color: #E94F37;
                 font-weight: bold;
                 &:hover{
                     background: #E94F37;
                     color: #BFE8E3;
-                    box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+                    box-shadow: 5px 5px 10px rgba(233, 79, 55, 0.3);
                 }
             }
             .check{
                 background: #E94F37;
-                color: #BFE8E3;
+                color: #424141;
                 &:hover{
-                    background: #BFE8E3;
+                    background: #424141;
                     border: 2px solid #E94F37;
                     color: #E94F37;
-                    box-shadow: 5px 5px 5px rgba(233, 79, 55, 0.5);
+                    box-shadow: 5px 5px 10px rgba(233, 79, 55, 0.3);
                 }
             }
         }
