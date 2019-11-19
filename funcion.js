@@ -79,6 +79,8 @@ function check(){
                 if ((cuadros[v][h].innerHTML == cuadros[vc][h].innerHTML) && (v != vc)){
                     cuadros[v][h].classList.add('class','error');
                     cuadros[vc][h].classList.add('class','error');                    
+                }else if(cuadros[v][h].innerHTML == ''){
+                    cuadros[v][h].classList.add('class','error');
                 }
             }
         }
