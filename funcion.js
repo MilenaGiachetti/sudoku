@@ -23,6 +23,7 @@ for(let i=0; i<9; i++) {
     }
 }
 function aumentarNumero(){
+    this.classList.remove("error");
     if(this.innerHTML === ''){
         this.innerHTML = 1 ;
     }else if (this.innerHTML == 9) {
@@ -33,6 +34,7 @@ function aumentarNumero(){
 }
 function disminuirNumero (e){
     e.preventDefault();
+    this.classList.remove("error");
     if(this.innerHTML === ''){
         this.innerHTML = 9 ;
     }else if (this.innerHTML == 1) {
@@ -53,26 +55,45 @@ for (let v = 0; v < 9; v++) {
     cuadros[v][2].classList.add('class','lineaVertical');
     cuadros[v][5].classList.add('class','lineaVertical');
 }
-
+//funcion de borrar
 function clear(){
     for(let i=0; i<9; i++) {
         for(let j=0; j<9; j++) {
             cuadros[i][j].innerHTML = "";
+            cuadros[i][j].classList.remove("error");
         }
     }
 }
-    /*for (let c = 0; c < cuadros.length; c++) {
-        cuadros[c].innerHTML = "";
-    } 
-}*/
 btnClear.addEventListener('click', clear);
-/*function check(){
-    for (let check = 0; check < 9; check++) {
-        for (let linecheck = 1; linecheck < 10; linecheck++) {
-            if()
-
-
-        } 
+//funcion para validar
+function check(){
+    for(let i=0; i<9; i++) {
+        for(let j=0; j<9; j++) {
+            cuadros[i][j].classList.remove("error");
+        }
     }
+    //horizontal
+    for (let h = 0; h < 9; h++) { 
+        for (let v = 0; v < 9; v++) {
+            for (let vc = 0; vc < 9; vc++) {
+                if ((cuadros[v][h].innerHTML == cuadros[vc][h].innerHTML) && (v != vc)){
+                    cuadros[v][h].classList.add('class','error');
+                    cuadros[vc][h].classList.add('class','error');                    
+                }
+            }
+        }
+    }
+    //vertical
+    for (let v = 0; v < 9; v++) { 
+        for (let h = 0; h < 9; h++) {
+            for (let hc = 0; hc < 9; hc++) {
+                if ((cuadros[v][h].innerHTML == cuadros[v][hc].innerHTML) && (h != hc)){
+                    cuadros[v][h].classList.add('class','error');
+                    cuadros[v][hc].classList.add('class','error');     
+                }
+            }
+        }
+    }
+    //cuadros
 }
-btnCheck.addEventListener('click', check);*/
+btnCheck.addEventListener('click', check);

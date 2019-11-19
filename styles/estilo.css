@@ -55,6 +55,11 @@ body main .contenedorSudoku .cuadro:hover {
   background: #f2f2f2;
 }
 
+body main .contenedorSudoku .error {
+  background: #E94F37;
+  color: #363538;
+}
+
 body main .contenedorSudoku .lineaVertical {
   border-right: 4px solid #363538;
   display: inline-block;
