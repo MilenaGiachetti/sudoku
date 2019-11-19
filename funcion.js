@@ -97,5 +97,21 @@ function check(){
         }
     }
     //cuadros
+    for(multiploHorizontal = 0; multiploHorizontal < 3 ; multiploHorizontal++){
+        for(multiploVertical = 0; multiploVertical < 3 ; multiploVertical++){
+            for(baseHorizontal = 0; baseHorizontal < 3; baseHorizontal++){
+                for(baseVertical = 0; baseVertical < 3; baseVertical++){
+                    for(comparadorHorizontal = 0; comparadorHorizontal < 3; comparadorHorizontal++){
+                        for(comparadorVertical = 0; comparadorVertical < 3; comparadorVertical++){
+                            if ((cuadros[baseVertical+3*multiploVertical][baseHorizontal+3*multiploHorizontal].innerHTML == cuadros[comparadorVertical+3*multiploVertical][comparadorHorizontal+3*multiploHorizontal].innerHTML) && (((baseHorizontal+3*multiploHorizontal) != (comparadorHorizontal+3*multiploHorizontal)) && ((baseVertical+3*multiploVertical) != (comparadorVertical+3*multiploVertical)))){
+                                cuadros[baseVertical+3*multiploVertical][baseHorizontal+3*multiploHorizontal].classList.add('class','error');
+                                cuadros[comparadorVertical+3*multiploVertical][comparadorHorizontal+3*multiploHorizontal].classList.add('class','error');     
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 btnCheck.addEventListener('click', check);
