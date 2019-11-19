@@ -3,21 +3,25 @@ let contenedor = document.getElementById('contenedorSudoku');
 let btnClear = document.getElementById('btnClear');
 let btnCheck = document.getElementById('btnCheck');
 let cuadros = [];
-let i = 0;
 
-while(i, i<81){
-    cuadraditos = document.createElement('p');
-    cuadraditos.innerHTML = '';
-    cuadraditos.setAttribute('class','cuadro');
-    contenedor.appendChild(cuadraditos);
-    cuadros.push(cuadraditos);
-    i++;
+for(let i=0; i<9; i++) {
+    cuadros[i] = [];
+    for(let j=0; j<9; j++) {
+        cuadraditos = document.createElement('p');
+        cuadraditos.innerHTML = '';
+        cuadraditos.setAttribute('class','cuadro');
+        contenedor.appendChild(cuadraditos);
+        cuadros[i].push(cuadraditos);
+    }
 }
+
 //funcion para cambiar numeros de cada cuadro de 1 a 9
-for (let e = 0; e < cuadros.length; e++) {
-    cuadros[e].addEventListener('click', aumentarNumero);
-    cuadros[e].addEventListener('contextmenu', disminuirNumero);
-} 
+for(let i=0; i<9; i++) {
+    for(let j=0; j<9; j++) {
+        cuadros[i][j].addEventListener('click', aumentarNumero);
+        cuadros[i][j].addEventListener('contextmenu', disminuirNumero);
+    }
+}
 function aumentarNumero(){
     if(this.innerHTML === ''){
         this.innerHTML = 1 ;
@@ -39,26 +43,28 @@ function disminuirNumero (e){
 }
 //lineas que separan recuadros
 //horizontales
-for (let h = 18; h < 27; h++) {
-    cuadros[h].classList.add('class','lineaHorizontal');
+for (let h = 0; h < 9; h++) {
+    cuadros[2][h].classList.add('class','lineaHorizontal');
+    cuadros[5][h].classList.add('class','lineaHorizontal');
 }
-for (let h = 45; h < 54; h++) {
-    cuadros[h].classList.add('class','lineaHorizontal');
-}
+
 //verticales
-for (let v = 0; v < 81; v++) {
-    for (let n = 0; n <= 9; n++) {
-        if(v == 2 + 9*n || v == 5 +9*n){
-            cuadros[v].classList.add('class','lineaVertical');
-        }
-    }
+for (let v = 0; v < 9; v++) {
+    cuadros[v][2].classList.add('class','lineaVertical');
+    cuadros[v][5].classList.add('class','lineaVertical');
 }
 
 function clear(){
-    for (let c = 0; c < cuadros.length; c++) {
+    for(let i=0; i<9; i++) {
+        for(let j=0; j<9; j++) {
+            cuadros[i][j].innerHTML = "";
+        }
+    }
+}
+    /*for (let c = 0; c < cuadros.length; c++) {
         cuadros[c].innerHTML = "";
     } 
-}
+}*/
 btnClear.addEventListener('click', clear);
 /*function check(){
     for (let check = 0; check < 9; check++) {
