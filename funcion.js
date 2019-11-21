@@ -46,14 +46,14 @@ function disminuirNumero (e){
 //lineas que separan recuadros
 //horizontales
 for (let h = 0; h < 9; h++) {
-    cuadros[2][h].classList.add('class','lineaHorizontal');
-    cuadros[5][h].classList.add('class','lineaHorizontal');
+    cuadros[2][h].classList.add('lineaHorizontal');
+    cuadros[5][h].classList.add('lineaHorizontal');
 }
 
 //verticales
 for (let v = 0; v < 9; v++) {
-    cuadros[v][2].classList.add('class','lineaVertical');
-    cuadros[v][5].classList.add('class','lineaVertical');
+    cuadros[v][2].classList.add('lineaVertical');
+    cuadros[v][5].classList.add('lineaVertical');
 }
 //funcion de borrar
 function clear(){
@@ -77,10 +77,10 @@ function check(){
         for (let v = 0; v < 9; v++) {
             for (let vc = 0; vc < 9; vc++) {
                 if ((cuadros[v][h].innerHTML == cuadros[vc][h].innerHTML) && (v != vc)){
-                    cuadros[v][h].classList.add('class','error');
-                    cuadros[vc][h].classList.add('class','error');                    
+                    cuadros[v][h].classList.add('error');
+                    cuadros[vc][h].classList.add('error');                    
                 }else if(cuadros[v][h].innerHTML == ''){
-                    cuadros[v][h].classList.add('class','error');
+                    cuadros[v][h].classList.add('error');
                 }
             }
         }
@@ -90,8 +90,8 @@ function check(){
         for (let h = 0; h < 9; h++) {
             for (let hc = 0; hc < 9; hc++) {
                 if ((cuadros[v][h].innerHTML == cuadros[v][hc].innerHTML) && (h != hc)){
-                    cuadros[v][h].classList.add('class','error');
-                    cuadros[v][hc].classList.add('class','error');     
+                    cuadros[v][h].classList.add('error');
+                    cuadros[v][hc].classList.add('error');     
                 }
             }
         }
@@ -104,8 +104,8 @@ function check(){
                     for(comparadorHorizontal = 0; comparadorHorizontal < 3; comparadorHorizontal++){
                         for(comparadorVertical = 0; comparadorVertical < 3; comparadorVertical++){
                             if ((cuadros[baseVertical+3*multiploVertical][baseHorizontal+3*multiploHorizontal].innerHTML == cuadros[comparadorVertical+3*multiploVertical][comparadorHorizontal+3*multiploHorizontal].innerHTML) && (((baseHorizontal+3*multiploHorizontal) != (comparadorHorizontal+3*multiploHorizontal)) && ((baseVertical+3*multiploVertical) != (comparadorVertical+3*multiploVertical)))){
-                                cuadros[baseVertical+3*multiploVertical][baseHorizontal+3*multiploHorizontal].classList.add('class','error');
-                                cuadros[comparadorVertical+3*multiploVertical][comparadorHorizontal+3*multiploHorizontal].classList.add('class','error');     
+                                cuadros[baseVertical+3*multiploVertical][baseHorizontal+3*multiploHorizontal].classList.add('error');
+                                cuadros[comparadorVertical+3*multiploVertical][comparadorHorizontal+3*multiploHorizontal].classList.add('error');     
                             }
                         }
                     }
@@ -115,3 +115,23 @@ function check(){
     }
 }
 btnCheck.addEventListener('click', check);
+cuadros[0][0].classList.toggle('fijo');
+
+for(let i=0; i<9; i++) {
+    for(let j=0; j<9; j++) {
+        if (cuadros[i][j].classList.contains('fijo')) {            
+            cuadros[i][j].removeEventListener('click', aumentarNumero);
+            cuadros[i][j].removeEventListener('contextmenu', disminuirNumero);
+        }
+    }
+}
+//crear numeros fijos
+/*for (let i = 0; i<9; i++) {
+    while (numeroFijo <= Math.floor(Math.random() * (7 - 4)) + 4) {
+        let numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+        if (numeroRandom ) {
+            
+        }
+    }
+}
+*/ 
