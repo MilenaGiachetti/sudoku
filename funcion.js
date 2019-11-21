@@ -107,41 +107,43 @@ function check(){
 btnCheck.addEventListener('click', check);
 
 //crear numeros fijos
-var numeroFijo = 1;
 var numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
 var hRandom = Math.floor(Math.random() * (3 - 0)) + 0;
 var vRandom = Math.floor(Math.random() * (3 - 0)) + 0;
 var correcto = 0;
 for (let i = 0; i<9; i++) {
-    while (numeroFijo <= Math.floor(Math.random() * (7 - 4)) + 4) {
-        hRandom = Math.floor(Math.random() * (3 - 0)) + 0;
-        vRandom = Math.floor(Math.random() * (3 - 0)) + 0;
-        numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
-        if (cuadros[vRandom][hRandom].innerHTML == '' ) {
-            for (let vc = 0; vc < 9; vc++) {
-                if ((cuadros[vc][hRandom].innerHTML == numeroRandom ) && (vRandom != vc)){
-                    correcto = 1;
-                }
-            }
-            for (let hc = 0; hc < 9; hc++) {
-                if ((cuadros[vRandom][hc].innerHTML == numeroRandom ) && (hRandom != hc)){
-                    correcto = 1;
-                }
-            }
-            for (let baseH = 0; baseH < 3; baseH++) {
-                for (let baseV = 0; baseV < 3; baseV++) {
-                    if((cuadros[baseV][baseH].innerHTML == numeroRandom) && (baseV != vRandom || baseH != hRandom)){
-                        correcto = 1;
+    for (let h = 0; h<3; h++) {
+        for (let v = 0; v<3; v++) {
+            for (var numeroFijo = 1; numeroFijo<=(Math.floor(Math.random() * (6 - 5)) + 5); numeroFijo++) {
+                hRandom = (Math.floor(Math.random() * (3 - 0)) + 0)+(3*h);
+                vRandom = (Math.floor(Math.random() * (3 - 0)) + 0)+(3*v);
+                numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+                if (cuadros[vRandom][hRandom].innerHTML == '' ) {
+                    for (let vc = 0; vc < 9; vc++) {
+                        if ((cuadros[vc][hRandom].innerHTML == numeroRandom ) && (vRandom != vc)){
+                            correcto = 1;
+                        }
+                    }
+                    for (let hc = 0; hc < 9; hc++) {
+                        if ((cuadros[vRandom][hc].innerHTML == numeroRandom ) && (hRandom != hc)){
+                            correcto = 1;
+                        }
+                    }
+                    for (let baseH = 0; baseH < 3; baseH++) {
+                        for (let baseV = 0; baseV < 3; baseV++) {
+                            if((cuadros[baseV+3*v][baseH+3*h].innerHTML == numeroRandom) && ((baseV+3*v) != vRandom || baseH+3*h != hRandom)){
+                                correcto = 1;
+                            }
+                        }
+                    }   
+                    if (correcto == 0) {
+                        cuadros[vRandom][hRandom].innerHTML = numeroRandom; 
+                        cuadros[vRandom][hRandom].classList.add('fijo');          
                     }
                 }
-            }   
-            if (correcto == 0) {
-                cuadros[vRandom][hRandom].innerHTML = numeroRandom; 
-                cuadros[vRandom][hRandom].classList.add('fijo');            
-                numeroFijo++;
+                correcto = 0;
             }
         }
-        correcto = 0;
     }
 }
 for(let i=0; i<9; i++) {
