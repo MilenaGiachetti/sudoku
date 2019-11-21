@@ -55,16 +55,6 @@ for (let v = 0; v < 9; v++) {
     cuadros[v][2].classList.add('lineaVertical');
     cuadros[v][5].classList.add('lineaVertical');
 }
-//funcion de borrar
-function clear(){
-    for(let i=0; i<9; i++) {
-        for(let j=0; j<9; j++) {
-            cuadros[i][j].innerHTML = "";
-            cuadros[i][j].classList.remove("error");
-        }
-    }
-}
-btnClear.addEventListener('click', clear);
 //funcion para validar
 function check(){
     for(let i=0; i<9; i++) {
@@ -121,26 +111,39 @@ var numeroFijo = 1;
 var numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
 var hRandom = Math.floor(Math.random() * (3 - 0)) + 0;
 var vRandom = Math.floor(Math.random() * (3 - 0)) + 0;
-//for (let i = 0; i<9; i++) {
+var correcto = 0;
+for (let i = 0; i<9; i++) {
     while (numeroFijo <= Math.floor(Math.random() * (7 - 4)) + 4) {
-        numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
         hRandom = Math.floor(Math.random() * (3 - 0)) + 0;
         vRandom = Math.floor(Math.random() * (3 - 0)) + 0;
-        cuadros[vRandom][hRandom].innerHTML = numeroRandom; 
-        cuadros[vRandom][hRandom].classList.add('fijo');
-        numeroFijo++;
-        /*if (cuadros[vRandom][hRandom].innerHTML == '' ) {
+        numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+        if (cuadros[vRandom][hRandom].innerHTML == '' ) {
             for (let vc = 0; vc < 9; vc++) {
-                if ((numeroRandom == cuadros[vc][hRandom].innerHTML) && (vRandom != vc)){
-                    cuadros[vRandom][hRandom].innerHTML = numeroRandom; 
-                     cuadros[vRandom][hRandom].classList.toggle('fijo');
-                    numeroFijo++;
+                if ((cuadros[vc][hRandom].innerHTML == numeroRandom ) && (vRandom != vc)){
+                    correcto = 1;
                 }
             }
-            
-        }*/
+            for (let hc = 0; hc < 9; hc++) {
+                if ((cuadros[vRandom][hc].innerHTML == numeroRandom ) && (hRandom != hc)){
+                    correcto = 1;
+                }
+            }
+            for (let baseH = 0; baseH < 3; baseH++) {
+                for (let baseV = 0; baseV < 3; baseV++) {
+                    if((cuadros[baseV][baseH].innerHTML == numeroRandom) && (baseV != vRandom || baseH != hRandom)){
+                        correcto = 1;
+                    }
+                }
+            }   
+            if (correcto == 0) {
+                cuadros[vRandom][hRandom].innerHTML = numeroRandom; 
+                cuadros[vRandom][hRandom].classList.add('fijo');            
+                numeroFijo++;
+            }
+        }
+        correcto = 0;
     }
-    //}
+}
 for(let i=0; i<9; i++) {
     for(let j=0; j<9; j++) {
         if (cuadros[i][j].classList.contains('fijo')) {            
@@ -149,3 +152,16 @@ for(let i=0; i<9; i++) {
         }
     }
 }
+    
+//funcion de borrar
+function clear(){
+    for(let i=0; i<9; i++) {
+        for(let j=0; j<9; j++) {
+            if (!cuadros[i][j].classList.contains('fijo')) {            
+                cuadros[i][j].innerHTML = "";
+                cuadros[i][j].classList.remove("error");
+            }
+        }
+    }
+}
+btnClear.addEventListener('click', clear);
