@@ -103,11 +103,94 @@ function check(){
             }
         }
     }
+    let error = 0;
+    for(let i=0; i<9; i++) {
+        for(let j=0; j<9; j++) {
+            if(cuadros[i][j].classList.contains('error')){
+                error = 1;
+            }
+        }
+    }
+    if (error==0){
+        alert('Resolucion correcta');
+    }else{
+        alert('Resolucion incorrecta, corrija y vuelve a chequear');
+    }
 }
 btnCheck.addEventListener('click', check);
 
+var sudoku = '039452780052000049860007350001028067027549830385010290040000900970035008003084600';
+var arraySudoku = sudoku.split('');
+let index = 0;
+while (index < arraySudoku.length) {
+    for(let i=0; i<9; i++) {
+        for(let j=0; j<9; j++) {       
+            if ( arraySudoku[index] > 0) {            
+                cuadros[i][j].innerHTML = arraySudoku[index];
+                cuadros[i][j].classList.add('fijo');
+                index++;
+            }else{
+                index++;
+            }
+        }
+    }
+}
 //crear numeros fijos
-var numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+/*var numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+var correcto = 0;
+var lleno = 0;
+while (lleno != 1) {
+    for (let multiploV = 0; multiploV<3; multiploV++) {
+        for (let multiploH = 0; multiploH<3; multiploH++) {
+            for (let h = 0; h<3; h++) {
+                for (let v = 0; v<3; v++) {
+                    numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
+                    if (cuadros[v+3*multiploV][h+3*multiploH].innerHTML == '' ) {
+                        for (let vc = 0; vc < 9; vc++) {
+                            if ((cuadros[vc][h+3*multiploH].innerHTML == numeroRandom ) && ((v+3*multiploV) != vc)){
+                                correcto = 1;
+                            }
+                        }
+                        for (let hc = 0; hc < 9; hc++) {
+                            if ((cuadros[v+3*multiploV][hc].innerHTML == numeroRandom ) && ((h+3*multiploH) != hc)){
+                                correcto = 1;
+                            }
+                        }
+                        for (let baseH = 0; baseH < 3; baseH++) {
+                            for (let baseV = 0; baseV < 3; baseV++) {
+                                if((cuadros[baseV][baseH].innerHTML == numeroRandom) && ((baseV) != (v+3*multiploV) || baseH != (h+3*multiploH))){
+                                    correcto = 1;
+                                }
+                            }
+                        }   
+                        if (correcto == 0) {
+                            cuadros[v+3*multiploV][h+3*multiploH].innerHTML = numeroRandom; 
+                            cuadros[v+3*multiploV][h+3*multiploH].classList.add('fijo');    
+                        }
+                    }
+                    correcto = 0;
+                }
+            }
+        }
+    }
+    for (let h = 0; h < 9; h++) { 
+        for (let v = 0; v < 9; v++) {
+            if (cuadros[v][h].innerHTML == ''){ 
+                for(let i=0; i<9; i++) {
+                    for(let j=0; j<9; j++) {          
+                        cuadros[i][j].innerHTML = '';
+                        cuadros[i][j].classList.remove("fijo");
+                    }
+                }
+            }else {
+                lleno=1;
+            }
+        }
+    }
+}*/
+
+
+/*var numeroRandom = Math.floor(Math.random() * (10 - 1)) + 1;
 var hRandom = Math.floor(Math.random() * (3 - 0)) + 0;
 var vRandom = Math.floor(Math.random() * (3 - 0)) + 0;
 var correcto = 0;
@@ -145,7 +228,7 @@ for (let i = 0; i<9; i++) {
             }
         }
     }
-}
+}*/
 for(let i=0; i<9; i++) {
     for(let j=0; j<9; j++) {
         if (cuadros[i][j].classList.contains('fijo')) {            
